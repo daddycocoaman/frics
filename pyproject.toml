@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "frics"
+dynamic = ["version"]
+description = 'Textual app to view Frida Codeshare snippets'
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = []
+authors = [{ name = "Leron Gray", email = "daddycocoaman@gmail.com" }]
+classifiers = [
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "aiosqlite==0.19.0",
+  "beautifulsoup4",
+  "httpx==0.24.*",
+  "platformdirs",
+  "pyperclip==1.8.2",
+  "textual==0.30.*",
+  "uvloop; platform_system == 'Linux'",
+]
+
+[project.scripts]
+frics = "frics.app:run_app"
+
+[project.urls]
+Documentation = "https://github.com/daddycocoaman/frics#readme"
+Issues = "https://github.com/daddycocoaman/frics/issues"
+Source = "https://github.com/daddycocoaman/frics"
+
+[tool.hatch.version]
+path = "frics/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = ["textual-dev", "black", "isort"]
+
+[tool.hatch.envs.default.scripts]
+style = ["ruff {args:.}", "black --check --diff {args:.}"]
+fmt = ["black {args:.}", "ruff --fix {args:.}", "style"]
+all = ["style", "typing"]
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+target-version = ["py310"]
+line-length = 120
+skip-string-normalization = true
