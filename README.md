@@ -18,6 +18,9 @@ Installation is recommended using [pipx](https://pypa.github.io/pipx/).
 pipx install frics
 ```
 
+## Screenshot
+![Screenshot1](https://github.com/daddycocoaman/frics/blob/main/docs/screenshot1.png?raw=True)
+
 ## License
 
 `frics` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
