@@ -22,7 +22,6 @@ class CodeshareClient:
     async def _ensure_db_schema(self) -> None:
         """Ensure the database schema is up to date."""
         async with aiosqlite.connect(self._db_path) as db:
-            # We're using FTS5 for full-text search
             await db.execute("DROP TABLE IF EXISTS projects")
             await db.execute(
                 """
